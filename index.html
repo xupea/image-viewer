@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
-    <link href="./styles.css" rel="stylesheet">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
+    />
+    <link href="./styles.css" rel="stylesheet" />
     <title>Hello World!</title>
-    <style type="text/css">
-      body {
-        margin: 0;
-      }
-      #pic {
-        position: absolute;
-      }
-    </style>
   </head>
   <body>
-    <img id="pic" src="./test.jpeg" draggable="false" />
+    <header id="scale">HAHA</header>
+    <div id="app">
+      <img id="pic" src="./height.jpeg" />
+    </div>
     <script src="./renderer.js"></script>
   </body>
 </html>
