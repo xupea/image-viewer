@@ -3,18 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
-    />
     <link href="./styles.css" rel="stylesheet" />
     <title>Hello World!</title>
+
+    <link href="./viewer/photoviewer.css" rel="stylesheet" />
+
+    <style>
+      .photoviewer-stage {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        border: none;
+      }
+
+      .photoviewer-header .photoviewer-toolbar {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .photoviewer-footer {
+        bottom: 10px;
+      }
+
+      .photoviewer-footer .photoviewer-toolbar {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+      }
+
+      .photoviewer-header,
+      .photoviewer-footer {
+        pointer-events: none;
+      }
+
+      .photoviewer-title {
+        color: #ccc;
+      }
+
+      .photoviewer-button {
+        color: #ccc;
+        pointer-events: auto;
+      }
+
+      .photoviewer-footer .photoviewer-button:hover {
+        color: white;
+      }
+    </style>
   </head>
   <body>
+    <div class="container"></div>
     <header id="scale">HAHA</header>
-    <div id="app">
+    <!-- <div id="app">
       <img id="pic" src="./height.jpeg" />
-    </div>
-    <script src="./renderer.js"></script>
+    </div> -->
+    <!-- <script src="./renderer.js"></script> -->
+    <script src="./viewer/photoviewer.js"></script>
+    <script>
+      // initialize manually with a list of links
+      // $(function (e) {
+      // e.preventDefault();
+
+      var items = [
+        {
+          src: "https://farm5.staticflickr.com/4267/34162425794_1430f38362_z.jpg",
+          title: "1",
+        },
+        {
+          src: "https://farm1.staticflickr.com/4160/34418397675_18de1f7b9f_z.jpg",
+          title: "2",
+        },
+        {
+          src: "https://farm1.staticflickr.com/512/32967783396_a6b4babd92_z.jpg",
+          title: "3",
+        },
+      ];
+
+      var options = {
+        appendTo: ".container",
+        resizable: true,
+        initMaximized: true,
+        title: false,
+        headerToolbar: [],
+        footerToolbar: [
+          "zoomIn",
+          "zoomOut",
+          "prev",
+          "next",
+          "actualSize",
+          "rotateRight",
+        ],
+        callbacks: {
+          radioChanged: function (context, index) {
+            console.log(index);
+          },
+        },
+      };
+
+      new PhotoViewer(items, options);
+      // });
+    </script>
   </body>
 </html>

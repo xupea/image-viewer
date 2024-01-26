@@ -6,7 +6,9 @@ const sizeOf = promisify(require("image-size"));
 
 async function createWindow() {
   const { workAreaSize, scaleFactor } = screen.getPrimaryDisplay();
-  const imageSize = await sizeOf("./height.jpeg");
+  const imageSize = await sizeOf("./viewer1.jpeg");
+
+  console.log("image original size", imageSize);
 
   let usePriority = "width";
   if (
@@ -79,9 +81,9 @@ async function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
-    titleBarStyle: "hidden",
-    titleBarOverlay: false,
-    trafficLightPosition: { x: 14, y: 12 },
+    // titleBarStyle: "hidden",
+    // titleBarOverlay: false,
+    // trafficLightPosition: { x: 14, y: 12 },
   });
 
   ipcMain.on("maximize", () => {
