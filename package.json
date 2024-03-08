@@ -17,7 +17,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^22.3.14"
+    "electron": "^29.1.1"
   },
   "dependencies": {
     "electronmon": "^2.0.2",
